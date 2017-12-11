@@ -1,4 +1,5 @@
 #include "ft_printf.h"
+#include <stdio.h>
 
 int		ft_vsnprintf(char *str, size_t size, char *format, va_list arg)
 {
@@ -17,9 +18,10 @@ int		ft_vdprintf(int fd, char *format, va_list arg)
 	char *end;
 	char *all_specs;
 
+	len = 0;
 	all_specs = ft_strdup(ALLOWED_SPECS);
 	start = format;
-	while (end = ft_strchr(start, '%'))
+	while ((end = ft_strchr(start, '%')))
 	{
 		ft_putnstr_fd(start, end - start, fd);
 		len += end - start;

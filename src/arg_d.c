@@ -8,6 +8,7 @@ int arg_d_hh(va_list arg, t_spec specs)
 
 	i = (char)va_arg(arg, int);
 	print = ft_itoa(i);
+	process_specs(&print, specs);
 	ft_putstr(print);
 	size = ft_strlen(print);
 	ft_strdel(&print);
@@ -22,6 +23,7 @@ int arg_d_h(va_list arg, t_spec specs)
 
 	i = (short)va_arg(arg, int);
 	print = ft_itoa(i);
+	process_specs(&print, specs);
 	ft_putstr(print);
 	size = ft_strlen(print);
 	ft_strdel(&print);
@@ -34,8 +36,10 @@ int arg_d_i(va_list arg, t_spec specs)
 	int i;
 	char *print;
 
+	printf("############\n");
 	i = va_arg(arg, int);
 	print = ft_itoa(i);
+	process_specs(&print, specs);
 	ft_putstr(print);
 	size = ft_strlen(print);
 	ft_strdel(&print);
@@ -50,6 +54,7 @@ int arg_d_l(va_list arg, t_spec specs)
 
 	i = va_arg(arg, long);
 	print = ft_itoa(i);
+	process_specs(&print, specs);
 	ft_putstr(print);
 	size = ft_strlen(print);
 	ft_strdel(&print);
@@ -64,6 +69,7 @@ int arg_d_ll(va_list arg, t_spec specs)
 
 	i = va_arg(arg, long long);
 	print = ft_itoa(i);
+	process_specs(&print, specs);
 	ft_putstr(print);
 	size = ft_strlen(print);
 	ft_strdel(&print);

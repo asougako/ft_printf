@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_twos_complement.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asougako <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 15:45:00 by asougako          #+#    #+#             */
-/*   Updated: 2017/12/11 16:17:52 by asougako         ###   ########.fr       */
+/*   Created: 2017/12/11 15:29:39 by asougako          #+#    #+#             */
+/*   Updated: 2017/12/11 15:30:15 by asougako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*ft_uitoa(uint64_t un)
+uint64_t        twos_complement(int64_t n)
 {
-	return(ft_itoabase(un, "0123456789"));
+	return((uint64_t)((~n) + 1));
 }
-

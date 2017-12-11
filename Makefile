@@ -6,7 +6,7 @@
 #    By: asougako <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 14:26:49 by asougako          #+#    #+#              #
-#    Updated: 2017/06/01 19:08:46 by asougako         ###   ########.fr        #
+#    Updated: 2017/12/11 19:45:31 by asougako         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,32 +15,39 @@
 
 NAME = ft_printf.a
 CC = gcc
-CF = -Wall -Wextra -Werror
 AR = ar
-INC = -I ../lib/
+INC = -I ./ -I ./lib/
+
 DEBUG = 0
 ifeq ($(DEBUG), 1)
+	CF =
 	DF = -g
 else
+	CF = -Wall -Wextra -Werror
 	DF =
 endif
+
 RM = /bin/rm -f
-HEAD_DIR = ./
 SRC_DIR = ./src/
 #		|				|				|				|				|
-SRC =	ft_printf.c		process.c \
-		arg_c.c			arg_s.c			arg_d.c
+SRC =	ft_printf.c		process.c		get_directives.c\
+		arg_c.c			arg_s.c			arg_d.c			arg_u.c\
+		arg_o.c			arg_x.c			arg_xupp.c		arg_p.c\
+		process_specs.c
 
 OBJ = $(SRC:.c=.o)
-ECHO = echo
 OS = $(shell uname -s)
 ifeq ($(OS), Linux)
 ECHO = echo -e
+else
+ECHO = echo
 endif
 
 all: $(NAME)
+	cd lib && make
 
 $(NAME): $(OBJ)
+	cd lib && make
 	@$(AR) rc $(NAME) $^
 ifeq ($(DEBUG), 1)
 	@$(ECHO) "Created library \033[32m$@\033[0m with debug flag."
@@ -49,7 +56,7 @@ else
 endif
 
 %.o: $(SRC_DIR)%.c
-	@$(CC) $(INC) $(DF) $(CF) -c $^ -I $(HEAD_DIR)
+	@$(CC) $(DF) $(CF) -c $^ $(INC)
 	@$(ECHO) "Created object \033[32m$@\033[0m."
 
 clean:

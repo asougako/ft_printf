@@ -6,7 +6,7 @@
 #    By: asougako <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 14:26:49 by asougako          #+#    #+#              #
-#    Updated: 2017/06/01 19:08:46 by asougako         ###   ########.fr        #
+#    Updated: 2017/12/11 16:46:58 by asougako         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ SRC =	ft_atoi.c			ft_bzero.c		ft_intlen.c		ft_isalnum.c\
 		ft_lstdelif.c		ft_lstchr.c		ft_dict_new.c	ft_dict_add.c\
 		ft_dict_del.c		ft_dict_find.c	ft_dict_print.c	get_next_line.c\
 		ft_print_memory.c	ft_lowstr.c		ft_uppstr.c		ft_qsort.c\
-		ft_putnstr_fd.c
+		ft_putnstr_fd.c		ft_twos_complement.c			ft_uitoa.c\
+		ft_uintlen.c
 
 OBJ = $(SRC:.c=.o)
 ECHO = echo

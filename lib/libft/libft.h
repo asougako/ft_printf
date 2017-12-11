@@ -6,7 +6,7 @@
 /*   By: asougako <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 11:21:17 by asougako          #+#    #+#             */
-/*   Updated: 2017/06/02 12:55:41 by asougako         ###   ########.fr       */
+/*   Updated: 2017/12/11 16:47:13 by asougako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,8 +165,10 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 ** Extra functions.
 */
 int					ft_isspace(int c);
-size_t				ft_intlen(uint64_t u_i, size_t base);
-char				*ft_uitoa(uint64_t u_n);
+size_t				ft_intlen(int64_t i, size_t base);
+size_t				ft_uintlen(uint64_t i, size_t base);
+uint64_t			twos_complement(int64_t);
+char				*ft_uitoa(uint64_t un);
 char				*ft_itoabase(uint64_t u_n, const char *base);
 char				**ft_strtab_new(void);
 char				**ft_strtab_add(char **src, char *str);

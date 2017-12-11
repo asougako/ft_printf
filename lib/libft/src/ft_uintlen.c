@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_ft_intlen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asougako <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 15:45:00 by asougako          #+#    #+#             */
-/*   Updated: 2017/12/11 16:17:52 by asougako         ###   ########.fr       */
+/*   Created: 2016/11/09 17:54:56 by asougako          #+#    #+#             */
+/*   Updated: 2017/12/11 16:47:36 by asougako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*ft_uitoa(uint64_t un)
+size_t	ft_uintlen(uint64_t i, size_t base)
 {
-	return(ft_itoabase(un, "0123456789"));
-}
+	size_t		count;
+	uint64_t	ui;
 
+	count = 0;
+	if (i == 0)
+	{
+		return (1);
+	}
+	ui = (uint64_t)i;
+	while (ui > 0)
+	{
+		ui /= base;
+		count++;
+	}
+	return (count);
+}

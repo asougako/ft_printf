@@ -8,28 +8,41 @@ void	test(int64_t n)
 
 int main(void)
 {
-	   printf("|%*s|\n", 8, "a");
-	ft_printf("|%*s|\n", 8, "a");
+	   printf("|%20.3s|\n", "0123456789");
+	ft_printf("|%20.3s|\n", "0123456789");
 	printf("\n");
 
-	   printf("|%#*d|\n", 8, 42);
-	ft_printf("|%#*d|\n", 8, 42);
+	   printf("|%-20s|\n", "0123456789");
+	ft_printf("|%-20s|\n", "0123456789");
 	printf("\n");
 
-	   printf("|%0*d|\n", 8, 42);
-	ft_printf("|%0*d|\n", 8, 42);
+	   printf("|%10.5d|\n", 42);
+	ft_printf("|%10.5d|\n", 42);
 	printf("\n");
 
-	   printf("|%-*d|\n", 8, 42);
-	ft_printf("|%-*d|\n", 8, 42);
+	   printf("|%010.4d|\n", 42);
+	ft_printf("|%010.4d|\n", 42);
 	printf("\n");
 
-	   printf("|%- *d|\n", 8, 42);
-	ft_printf("|%- *d|\n", 8, 42);
+	   printf("|%-10.4d|\n", 42);
+	ft_printf("|%-10.4d|\n", 42);
 	printf("\n");
 
-	   printf("|%+*d|\n", 8, 42);
-	ft_printf("|%+*d|\n", 8, 42);
+	   printf("|%- 10.4d|\n", 42);
+	ft_printf("|%- 10.4d|\n", 42);
+	printf("\n");
+
+	   printf("|%+10.4d|\n", 42);
+	ft_printf("|%+10.4d|\n", 42);
+	printf("\n");
+
+
+	   printf("|%.20d|\n", 314159);
+	ft_printf("|%.20d|\n", 314159);
+	printf("\n");
+
+	   printf("|%+#30.20x|\n", 314159);
+	ft_printf("|%+#30.20x|\n", 314159);
 	printf("\n");
 
 	/*

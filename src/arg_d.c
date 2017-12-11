@@ -36,7 +36,6 @@ int arg_d_i(va_list arg, t_spec specs)
 	int i;
 	char *print;
 
-	printf("############\n");
 	i = va_arg(arg, int);
 	print = ft_itoa(i);
 	process_specs(&print, specs);

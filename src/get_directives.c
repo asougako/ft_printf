@@ -106,20 +106,20 @@ t_spec get_directives(char *start, char *conv, va_list arg)
 
 	//	printf("\n\tSTART: %s\n", directives);
 	get_flags(&specs, directives, directives + dir_len);
+	get_prec(&specs, directives, directives + dir_len);
 	get_width(&specs, directives, directives + dir_len, arg);
 	if (ft_strchr(start, '*'))
 	{
 		specs.width = va_arg(arg, int);
 		specs.has_width = 1;
 	}
-	get_prec(&specs, directives, directives + dir_len);
 	get_lenght(&specs, directives, directives + dir_len);
 	specs.conv = *conv;
 
 
 	//  printf("\n\t  END: %s\n", directives);
 //		printf("f=%x\tw=%d\tp=%d\tl=%d\tc=%c\n",\
-			specs.flags, specs.width, specs.prec, specs.lenght, specs.conv);
+//			specs.flags, specs.width, specs.prec, specs.lenght, specs.conv);
 	ft_strdel(&directives);
 	return(specs);
 }

@@ -70,7 +70,7 @@ typedef struct	s_spec{
  *	GLOBALS
  */
 int     index_tab[INDEX_TAB_LEN];
-int (*directives_table[DIRECTIVE_TAB_LEN])(va_list, t_spec);
+int		(*directives_table[DIRECTIVE_TAB_LEN])(va_list, t_spec, int);
 
 /*
  *	PROTOTYPES
@@ -80,37 +80,38 @@ int		ft_printf(char *format, ...);
 int		process_directives(char *start, char *end, va_list arg, int fd);
 t_spec	get_directives(char *start, char *conv,va_list arg);
 void	process_specs(char **arg, t_spec specs);
+void	pre_process_x(t_spec *specs);
 
-int		arg_error(va_list arg, t_spec specs);
-int		arg_percent(va_list arg, t_spec specs);
-int		arg_c_hh(va_list arg, t_spec specs);
-int		arg_c_l(va_list arg, t_spec specs);
-int		arg_s_hh(va_list arg, t_spec specs);
-int		arg_s_l(va_list arg, t_spec specs);
-int		arg_d_hh(va_list arg, t_spec specs);
-int		arg_d_h(va_list arg, t_spec specs);
-int		arg_d_i(va_list arg, t_spec specs);
-int		arg_d_l(va_list arg, t_spec specs);
-int		arg_d_ll(va_list arg, t_spec specs);
-int		arg_u_hh(va_list arg, t_spec specs);
-int		arg_u_h(va_list arg, t_spec specs);
-int		arg_u_i(va_list arg, t_spec specs);
-int		arg_u_l(va_list arg, t_spec specs);
-int		arg_u_ll(va_list arg, t_spec specs);
-int		arg_o_hh(va_list arg, t_spec specs);
-int		arg_o_h(va_list arg, t_spec specs);
-int		arg_o_i(va_list arg, t_spec specs);
-int		arg_o_l(va_list arg, t_spec specs);
-int		arg_o_ll(va_list arg, t_spec specs);
-int		arg_x_hh(va_list arg, t_spec specs);
-int		arg_x_h(va_list arg, t_spec specs);
-int		arg_x_i(va_list arg, t_spec specs);
-int		arg_x_l(va_list arg, t_spec specs);
-int		arg_x_ll(va_list arg, t_spec specs);
-int		arg_xupp_hh(va_list arg, t_spec specs);
-int		arg_xupp_h(va_list arg, t_spec specs);
-int		arg_xupp_i(va_list arg, t_spec specs);
-int		arg_xupp_l(va_list arg, t_spec specs);
-int		arg_xupp_ll(va_list arg, t_spec specs);
-int		arg_p(va_list arg, t_spec specs);
+int		arg_error(va_list arg, t_spec specs, int fd);
+int		arg_percent(va_list arg, t_spec specs, int fd);
+int		arg_c_hh(va_list arg, t_spec specs, int fd);
+int		arg_c_l(va_list arg, t_spec specs, int fd);
+int		arg_s_hh(va_list arg, t_spec specs, int fd);
+int		arg_s_l(va_list arg, t_spec specs, int fd);
+int		arg_d_hh(va_list arg, t_spec specs, int fd);
+int		arg_d_h(va_list arg, t_spec specs, int fd);
+int		arg_d_i(va_list arg, t_spec specs, int fd);
+int		arg_d_l(va_list arg, t_spec specs, int fd);
+int		arg_d_ll(va_list arg, t_spec specs, int fd);
+int		arg_u_hh(va_list arg, t_spec specs, int fd);
+int		arg_u_h(va_list arg, t_spec specs, int fd);
+int		arg_u_i(va_list arg, t_spec specs, int fd);
+int		arg_u_l(va_list arg, t_spec specs, int fd);
+int		arg_u_ll(va_list arg, t_spec specs, int fd);
+int		arg_o_hh(va_list arg, t_spec specs, int fd);
+int		arg_o_h(va_list arg, t_spec specs, int fd);
+int		arg_o_i(va_list arg, t_spec specs, int fd);
+int		arg_o_l(va_list arg, t_spec specs, int fd);
+int		arg_o_ll(va_list arg, t_spec specs, int fd);
+int		arg_x_hh(va_list arg, t_spec specs, int fd);
+int		arg_x_h(va_list arg, t_spec specs, int fd);
+int		arg_x_i(va_list arg, t_spec specs, int fd);
+int		arg_x_l(va_list arg, t_spec specs, int fd);
+int		arg_x_ll(va_list arg, t_spec specs, int fd);
+int		arg_xupp_hh(va_list arg, t_spec specs, int fd);
+int		arg_xupp_h(va_list arg, t_spec specs, int fd);
+int		arg_xupp_i(va_list arg, t_spec specs, int fd);
+int		arg_xupp_l(va_list arg, t_spec specs, int fd);
+int		arg_xupp_ll(va_list arg, t_spec specs, int fd);
+int		arg_p(va_list arg, t_spec specs, int fd);
 #endif

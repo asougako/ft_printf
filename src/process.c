@@ -30,19 +30,24 @@ int		index_tab[INDEX_TAB_LEN] = {
 //	return(arg);
 //}
 
-int	arg_error(va_list arg, t_spec specs)
+int	arg_error(va_list arg, t_spec specs, int fd)
 {
+	(void)arg;
+	(void)specs;
+	(void)fd;
 	return(0);
 }
 
-int	arg_percent(va_list arg, t_spec specs)
+int	arg_percent(va_list arg, t_spec specs, int fd)
 {
-	ft_putchar('%');
+	(void)arg;
+	(void)specs;
+	ft_putchar_fd('%', fd);
 	return(1);
 }
 
 //conv func jump table
-int (*directives_table[DIRECTIVE_TAB_LEN])(va_list, t_spec) = {
+int (*directives_table[DIRECTIVE_TAB_LEN])(va_list, t_spec, int) = {
 	arg_error,		//	0
 	arg_percent,	//	1
 	arg_c_hh,		//	2
@@ -87,9 +92,8 @@ int	process_directives(char *start, char *conv , va_list arg, int fd)
 
 	if ((jump_index = index_tab[*conv - CONV_OFFSET]) < 0)
 		jump_index = 0;
-//	printf("\nJUMPING TO %d + %d (%p)\n",\
-		   	jump_index, specs.lenght, directives_table[jump_index + specs.lenght]);
-	(*directives_table[jump_index + specs.lenght])(arg, specs);
+//	printf("\nJUMPING TO %d + %d (%p)\n", jump_index, specs.lenght, directives_table[jump_index + specs.lenght]);
+	(*directives_table[jump_index + specs.lenght])(arg, specs, fd);
 
 
 	len = 0;

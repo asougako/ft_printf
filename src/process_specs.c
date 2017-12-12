@@ -19,10 +19,14 @@
 
 #include "ft_printf.h"
 
+#define REMOVE_FLAG(F) ((*specs).flags &= ~F)
+void	pre_process_x(t_spec *specs)
+{
+	REMOVE_FLAG(FLAG_PLUS);
+}
+
 static	t_spec	pre_process(t_spec specs)
 {
-//	if(specs.flags & FLAG_MINUS && specs.width > 0)
-//		specs.width = twos_complement(specs.width);
 
 	if (specs.width < 0)
 	{
@@ -89,7 +93,7 @@ void	process_prec(char **arg, t_spec specs)
 {
 	char	*buff;
 	char	filler;
-	size_t	size;
+	int		size;
 
 	if (specs.has_prec == false)
 		return;
@@ -105,10 +109,9 @@ void	process_prec(char **arg, t_spec specs)
 		if (size < specs.prec)
 			size = specs.prec;
 	}
-
 	buff = ft_strnew(size);
 	ft_memset(buff, filler, size);
-	if (size > ft_strlen(*arg))
+	if (size > (int)ft_strlen(*arg))
 		ft_strncpy(buff + (size - ft_strlen(*arg)), *arg, size);
 	else
 		ft_strncpy(buff, *arg, size);
@@ -120,7 +123,7 @@ void	process_width(char **arg, t_spec specs)
 {
 	char	*buff;
 	char	filler;
-	size_t	size;
+	int		size;
 
 	if (specs.has_width == false)
 		return;
@@ -146,11 +149,9 @@ void	process_specs(char **arg, t_spec specs)
 
 //	printf("\n~~~%s\n", *arg);
 
-//	printf("f=%x\tw=%d\tp=%d\tl=%d\tc=%c\n",\
-//			specs.flags, specs.width, specs.prec, specs.lenght, specs.conv);
+//	printf("f=%x\tw=%d\tp=%d\tl=%d\tc=%c\n", specs.flags, specs.width, specs.prec, specs.lenght, specs.conv);
 	specs = pre_process(specs);
-//	printf("f=%x\tw=%d\tp=%d\tl=%d\tc=%c\n",\
-//			specs.flags, specs.width, specs.prec, specs.lenght, specs.conv);
+//	printf("f=%x\tw=%d\tp=%d\tl=%d\tc=%c\n", specs.flags, specs.width, specs.prec, specs.lenght, specs.conv);
 
 	process_prec(arg, specs);
 	process_flag(arg, specs);

@@ -23,7 +23,7 @@ static void	get_flags(t_spec *specs, char *start, char *conv)
 	ft_strdel(&a_flags);
 }
 
-static void	get_width(t_spec *specs, char *start, char *conv, va_list arg)
+static void	get_width(t_spec *specs, char *start, char *conv)
 {
 	char *end;
 	char *width;
@@ -76,7 +76,7 @@ static void	get_prec(t_spec *specs, char *start, char *conv)
 	ft_memset(start, SUB_CHAR, end - start);
 }
 
-static void	get_lenght(t_spec *specs, char *start, char *end)
+static void	get_lenght(t_spec *specs, char *start)
 {
 	char    *a_len[5] = {"hh", "h", "ll", "l", NULL};
 	int     size_tab[4] = {LENG_HH, LENG_H, LENG_LL, LENG_L};
@@ -107,19 +107,18 @@ t_spec get_directives(char *start, char *conv, va_list arg)
 	//	printf("\n\tSTART: %s\n", directives);
 	get_flags(&specs, directives, directives + dir_len);
 	get_prec(&specs, directives, directives + dir_len);
-	get_width(&specs, directives, directives + dir_len, arg);
+	get_width(&specs, directives, directives + dir_len);
 	if (ft_strchr(start, '*'))
 	{
 		specs.width = va_arg(arg, int);
 		specs.has_width = 1;
 	}
-	get_lenght(&specs, directives, directives + dir_len);
+	get_lenght(&specs, directives);
 	specs.conv = *conv;
 
 
 	//  printf("\n\t  END: %s\n", directives);
-//		printf("f=%x\tw=%d\tp=%d\tl=%d\tc=%c\n",\
-//			specs.flags, specs.width, specs.prec, specs.lenght, specs.conv);
+//		printf("f=%x\tw=%d\tp=%d\tl=%d\tc=%c\n", specs.flags, specs.width, specs.prec, specs.lenght, specs.conv);
 	ft_strdel(&directives);
 	return(specs);
 }

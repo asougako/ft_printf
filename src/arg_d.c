@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int arg_d_hh(va_list arg, t_spec specs)
+int arg_d_hh(va_list arg, t_spec specs, int fd)
 {
 	int size;
 	char i;
@@ -9,13 +9,13 @@ int arg_d_hh(va_list arg, t_spec specs)
 	i = (char)va_arg(arg, int);
 	print = ft_itoa(i);
 	process_specs(&print, specs);
-	ft_putstr(print);
+	ft_putstr_fd(print, fd);
 	size = ft_strlen(print);
 	ft_strdel(&print);
 	return(size);
 }
 
-int arg_d_h(va_list arg, t_spec specs)
+int arg_d_h(va_list arg, t_spec specs, int fd)
 {
 	int size;
 	short i;
@@ -24,13 +24,13 @@ int arg_d_h(va_list arg, t_spec specs)
 	i = (short)va_arg(arg, int);
 	print = ft_itoa(i);
 	process_specs(&print, specs);
-	ft_putstr(print);
+	ft_putstr_fd(print, fd);
 	size = ft_strlen(print);
 	ft_strdel(&print);
 	return(size);
 }
 
-int arg_d_i(va_list arg, t_spec specs)
+int arg_d_i(va_list arg, t_spec specs, int fd)
 {
 	int size;
 	int i;
@@ -39,13 +39,13 @@ int arg_d_i(va_list arg, t_spec specs)
 	i = va_arg(arg, int);
 	print = ft_itoa(i);
 	process_specs(&print, specs);
-	ft_putstr(print);
+	ft_putstr_fd(print, fd);
 	size = ft_strlen(print);
 	ft_strdel(&print);
 	return(size);
 }
 
-int arg_d_l(va_list arg, t_spec specs)
+int arg_d_l(va_list arg, t_spec specs, int fd)
 {
 	int size;
 	long i;
@@ -54,13 +54,13 @@ int arg_d_l(va_list arg, t_spec specs)
 	i = va_arg(arg, long);
 	print = ft_itoa(i);
 	process_specs(&print, specs);
-	ft_putstr(print);
+	ft_putstr_fd(print, fd);
 	size = ft_strlen(print);
 	ft_strdel(&print);
 	return(size);
 }
 
-int arg_d_ll(va_list arg, t_spec specs)
+int arg_d_ll(va_list arg, t_spec specs, int fd)
 {
 	int size;
 	long long i;
@@ -69,7 +69,7 @@ int arg_d_ll(va_list arg, t_spec specs)
 	i = va_arg(arg, long long);
 	print = ft_itoa(i);
 	process_specs(&print, specs);
-	ft_putstr(print);
+	ft_putstr_fd(print, fd);
 	size = ft_strlen(print);
 	ft_strdel(&print);
 	return(size);

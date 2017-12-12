@@ -12,7 +12,7 @@ int main(void)
 	ft_printf("|%20.3s|\n", "0123456789");
 	printf("\n");
 
-	   printf("|%-20s|\n", "0123456789");
+	printf("|%-20s|\n", "0123456789");
 	ft_printf("|%-20s|\n", "0123456789");
 	printf("\n");
 
@@ -45,7 +45,6 @@ int main(void)
 	ft_printf("|%+#30.20x|\n", 314159);
 	printf("\n");
 
-	/*
 	////
 	printf("||%o||\n", 42);
 	printf("||%#010.9o||\n", 4242);
@@ -54,7 +53,7 @@ int main(void)
 
 	////
 	printf("CHAR\n");
-	   printf("char: %c\n", 'c');
+	printf("char: %c\n", 'c');
 	ft_printf("char: %c\n", 'c');
 
 	printf("||%-10c||\n", 'c');
@@ -63,7 +62,7 @@ int main(void)
 	printf("\n");
 	////
 	printf("STRING\n");
-	   printf("%s>>>%s\n", "PONYS","SUCKS!");
+	printf("%s>>>%s\n", "PONYS","SUCKS!");
 	ft_printf("%s>>>%s\n", "PONYS","SUCKS!");
 
 	printf("||%-.5s||\n", "0123456789");
@@ -96,6 +95,7 @@ int main(void)
 
 	printf("\n");
 	printf("\n");
+	ft_strdel(&format);
 	////
 	printf("UNSIGNED INT\n");
 
@@ -116,6 +116,7 @@ int main(void)
 
 	printf("\n");
 	printf("\n");
+	ft_strdel(&format);
 	////
 	printf("OCTAL\n");
 
@@ -136,6 +137,7 @@ int main(void)
 
 	printf("\n");
 	printf("\n");
+	ft_strdel(&format);
 	////
 	printf("HEXADECIMAL\n");
 
@@ -156,6 +158,7 @@ int main(void)
 
 	printf("\n");
 	printf("\n");
+	ft_strdel(&format);
 	////
 	printf("HEXADECIMAL\n");
 
@@ -176,5 +179,5 @@ int main(void)
 
 	printf("\n");
 	printf("\n");
-	*/
+	ft_strdel(&format);
 }

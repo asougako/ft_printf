@@ -2,8 +2,12 @@
 
 int arg_mod(va_list arg, t_spec specs, int fd)
 {
+	char	*str;
+
     (void)arg;
     (void)specs;
-    ft_putchar_fd('%', fd);
-    return(1);
+	str = ft_strdup("%");
+	process_specs_mod(&str, specs);
+    ft_putstr_fd(str, fd);
+    return(ft_strlen(str));
 }

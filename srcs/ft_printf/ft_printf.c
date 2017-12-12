@@ -31,7 +31,6 @@ int		ft_vdprintf(int fd, char *format, va_list arg)
 			if (ft_strchr(all_specs, *end) != NULL)
 			{
 				len += process_directives(start, end, arg, fd);
-			//	printf("~~~~~~~~~~~~");
 				start = end;
 				break;
 			}

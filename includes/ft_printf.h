@@ -81,6 +81,7 @@ int		process_directives(char *start, char *end, va_list arg, int fd);
 t_spec	get_directives(char *start, char *conv,va_list arg);
 void	process_specs(char **arg, t_spec specs);
 
+void	process_specs_mod(char **arg, t_spec specs);
 void	process_specs_c(char **arg, t_spec specs);
 void	process_specs_s(char **arg, t_spec specs);
 void	process_specs_d(char **arg, t_spec specs);

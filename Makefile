@@ -6,7 +6,7 @@
 #    By: asougako <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 14:26:49 by asougako          #+#    #+#              #
-#    Updated: 2017/12/12 20:56:20 by asougako         ###   ########.fr        #
+#    Updated: 2017/12/12 21:17:39 by asougako         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ SRC_FTPRINTF =\
 	ft_printf.c			process.c       get_directives.c\
 	arg_c.c				arg_s.c         arg_d.c         arg_u.c\
 	arg_o.c				arg_x.c         arg_xupp.c      arg_p.c\
-	process_specs.c		process_specs_s.c\
+	process_specs_mod.c		process_specs_s.c\
 	process_specs_d.c	process_specs_u.c	arg_err.c	arg_mod.c
 
 SRCS = $(SRC_LIBFT)\

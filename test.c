@@ -8,6 +8,9 @@ void	test(int64_t n)
 
 int main(void)
 {
+	   printf("-->>%5%<--\n");
+	ft_printf("-->>%5%<--\n");
+	/*
 	   printf("|%20.3s|\n", "0123456789");
 	ft_printf("|%20.3s|\n", "0123456789");
 	printf("\n");
@@ -46,23 +49,26 @@ int main(void)
 	printf("\n");
 
 	////
-	printf("||%o||\n", 42);
-	printf("||%#010.9o||\n", 4242);
+	   printf("||%o||\n", 42);
+	ft_printf("||%o||\n", 42);
+	   printf("||%#010.9o||\n", 4242);
+	ft_printf("||%#010.9o||\n", 4242);
 	printf("\n");
 	printf("\n");
 
 	////
 	printf("CHAR\n");
-	printf("char: %c\n", 'c');
+	   printf("char: %c\n", 'c');
 	ft_printf("char: %c\n", 'c');
 
-	printf("||%-10c||\n", 'c');
+	   printf("||%-10c||\n", 'c');
+	ft_printf("||%-10c||\n", 'c');
 
 	printf("\n");
 	printf("\n");
 	////
 	printf("STRING\n");
-	printf("%s>>>%s\n", "PONYS","SUCKS!");
+	   printf("%s>>>%s\n", "PONYS","SUCKS!");
 	ft_printf("%s>>>%s\n", "PONYS","SUCKS!");
 
 	  printf("||%-.5s||\n", "0123456789");
@@ -70,10 +76,11 @@ int main(void)
  	   printf("||%#20.5s||\n", "0123456789");
 	ft_printf("||%#20.5s||\n", "0123456789");
 
-	   printf(" ||%020.5s||\n", "0123456789");
-	ft_printf(" ||%020.5s||\n", "0123456789");
-	   printf(" ||%020.30s||\n", "0123456789");
-	ft_printf(" ||%020.30s||\n", "0123456789");
+	   printf(" ||%-020.5s||\n", "0123456789");
+	ft_printf(" ||%-020.5s||\n", "0123456789");
+
+	   printf(" ||%-020.30s||\n", "0123456789");
+	ft_printf(" ||%-020.30s||\n", "0123456789");
 
 	   printf(" ||%020s||\n", "0123456789");
 	ft_printf(" ||%020s||\n", "0123456789");
@@ -192,4 +199,5 @@ int main(void)
 	printf("\n");
 	printf("\n");
 	ft_strdel(&format);
+	*/
 }

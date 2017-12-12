@@ -1,7 +1,7 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-//	jump index table
+//	Jump index table
 int		index_tab[INDEX_TAB_LEN] = {
 /*			0		1		2		3		4		5		6		7*/
 /*04*/	/* */2,	/**/0,	/**/0,	/*#*/2,	/**/0,	/*%*/1,	/**/0,	/**/0,
@@ -18,38 +18,10 @@ int		index_tab[INDEX_TAB_LEN] = {
 /*17*/	/*x*/21,/**/0,	/**/0,	/**/0,	/**/0,	/**/0,	/**/0,	/**/0
 };
 
-//char *process_specs(void *arg, t_spec specs)
-//{
-//	char *buff;
-//	int buff_size;
-//
-//	buff_size = ft_strlen(arg) + specs.width + specs.prec + 3;
-//	buff = ft_strnew(buff_size);
-//
-//	ft_strdel(&buff);
-//	return(arg);
-//}
-
-int	arg_error(va_list arg, t_spec specs, int fd)
-{
-	(void)arg;
-	(void)specs;
-	(void)fd;
-	return(0);
-}
-
-int	arg_percent(va_list arg, t_spec specs, int fd)
-{
-	(void)arg;
-	(void)specs;
-	ft_putchar_fd('%', fd);
-	return(1);
-}
-
-//conv func jump table
+//	Conv func jump table
 int (*directives_table[DIRECTIVE_TAB_LEN])(va_list, t_spec, int) = {
-	arg_error,		//	0
-	arg_percent,	//	1
+	arg_err,		//	0
+	arg_mod,		//	1
 	arg_c_hh,		//	2
 	arg_c_l,
 	arg_s_hh,		//	4
@@ -88,14 +60,14 @@ int	process_directives(char *start, char *conv , va_list arg, int fd)
 	int		jump_index;
 	t_spec	specs;
 
+	len = 0;
 	specs = get_directives(start, conv, arg);
 
 	if ((jump_index = index_tab[*conv - CONV_OFFSET]) < 0)
 		jump_index = 0;
+
 //	printf("\nJUMPING TO %d + %d (%p)\n", jump_index, specs.lenght, directives_table[jump_index + specs.lenght]);
-	(*directives_table[jump_index + specs.lenght])(arg, specs, fd);
 
-
-	len = 0;
+	len = (*directives_table[jump_index + specs.lenght])(arg, specs, fd);
 	return(len);
 }

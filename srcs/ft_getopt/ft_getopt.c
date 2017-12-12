@@ -3,9 +3,9 @@
 
 t_sopt	ft_getopt(int ac, char **av)
 {
-    uint64_t	opt;
-    t_list		**lopt;
-    t_sopt		sopt;
+//    uint64_t	opt;
+//    t_list		**lopt;
+	t_sopt		sopt;
 
     av_sort(av);
     sopt = parse_opt(ac, av);

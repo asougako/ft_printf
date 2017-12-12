@@ -2,7 +2,7 @@
 #ifndef FT_GETOPT_H
 # define FT_GETOPT_H
 
-# include "libft/libft.h"
+# include "libft.h"
 
 enum	e_options{
 		//num

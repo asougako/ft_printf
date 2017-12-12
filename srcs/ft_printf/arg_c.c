@@ -8,7 +8,7 @@ int arg_c_hh(va_list arg, t_spec specs, int fd)
 	c = (char)va_arg(arg, int);
 	str = ft_strnew(2);
 	*str = c;
-	process_specs(&str, specs);
+	process_specs_s(&str, specs);
 	ft_putstr_fd(str, fd);
 	ft_strdel(&str);
 	return(1);

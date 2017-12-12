@@ -19,7 +19,7 @@
 /*
  *	INCLUDES
  */
-#include "libft/libft.h"
+#include "libft.h"
 #include <stdarg.h>
 #include <stdio.h>
 
@@ -88,8 +88,15 @@ void	process_specs_u(char **arg, t_spec specs);
 void	process_specs_o(char **arg, t_spec specs);
 void	process_specs_x(char **arg, t_spec specs);
 
-int		arg_error(va_list arg, t_spec specs, int fd);
-int		arg_percent(va_list arg, t_spec specs, int fd);
+void    preprocess_c(t_spec *specs);
+void    preprocess_s(t_spec *specs);
+void    preprocess_d(t_spec *specs);
+void    preprocess_u(t_spec *specs);
+void    preprocess_o(t_spec *specs);
+void    preprocess_x(t_spec *specs);
+
+int		arg_err(va_list arg, t_spec specs, int fd);
+int		arg_mod(va_list arg, t_spec specs, int fd);
 int		arg_c_hh(va_list arg, t_spec specs, int fd);
 int		arg_c_l(va_list arg, t_spec specs, int fd);
 int		arg_s_hh(va_list arg, t_spec specs, int fd);

@@ -1,30 +1,30 @@
 #include "ft_printf.h"
 
 #define REMOVE_FLAG(F) ((*specs).flags &= ~F)
-static void	preprocess(t_spec *specs)
+static void	preprocess(t_spec *specs, char *arg)
 {
 	REMOVE_FLAG(FLAG_PLUS);
-//	if (specs.width < 0)
-//	{
-//		specs.flags &= FLAG_MINUS;
-//		specs.width = twos_complement(specs.width);
-//	}
-//
-//	//  Flag'#' has no effect with conv c, d, i, n, p, s, and u
-//	if (!(ft_strchr("oxX", specs.conv)))
-//		specs.flags &= ~FLAG_HASH;
-//
-//	//  Prec remove flag '0'
-//	if (specs.prec)
-//		specs.flags &= ~FLAG_ZERO;
-//
-//	//  Flag '-'remove flag '0'
-//	if (specs.flags & FLAG_MINUS)
-//		specs.flags &= ~FLAG_ZERO;
-//
-//	//  Flag '+' remove flag ' '
-//	if (specs.flags & FLAG_PLUS)
-//		specs.flags &= ~FLAG_SPACE;
+	REMOVE_FLAG(FLAG_HASH);
+
+	(void)arg;
+
+	if ((*specs).width < 0)
+	{
+		(*specs).flags &= FLAG_MINUS;
+		(*specs).width = twos_complement((*specs).width);
+	}
+
+	//  Prec remove flag '0'
+	if ((*specs).prec)
+		REMOVE_FLAG(FLAG_ZERO);
+
+	//  Flag '-'remove flag '0'
+	if ((*specs).flags & FLAG_MINUS)
+		REMOVE_FLAG(FLAG_ZERO);
+
+	//  Flag '+' remove flag ' '
+	if ((*specs).flags & FLAG_PLUS)
+		REMOVE_FLAG(FLAG_SPACE);
 }
 
 static void	process_flag(char **arg, t_spec specs)
@@ -120,7 +120,9 @@ static void	process_width(char **arg, t_spec specs)
 void		process_specs_s(char **arg, t_spec specs)
 {
 	//  printf("f=%x\tw=%d\tp=%d\tl=%d\tc=%c\n", specs.flags, specs.width, specs.pr    ec, specs.lenght, specs.conv);
-	preprocess(&specs);
+
+	preprocess(&specs, *arg);
+
 	//  printf("f=%x\tw=%d\tp=%d\tl=%d\tc=%c\n", specs.flags, specs.width, specs.pr    ec, specs.lenght, specs.conv);
 
 	process_prec(arg, specs);

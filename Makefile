@@ -6,7 +6,7 @@
 #    By: asougako <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 14:26:49 by asougako          #+#    #+#              #
-#    Updated: 2017/12/11 19:45:31 by asougako         ###   ########.fr        #
+#    Updated: 2017/12/12 14:16:07 by asougako         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SRC_DIR = ./src/
 SRC =	ft_printf.c		process.c		get_directives.c\
 		arg_c.c			arg_s.c			arg_d.c			arg_u.c\
 		arg_o.c			arg_x.c			arg_xupp.c		arg_p.c\
-		process_specs.c
+		process_specs.c	preprocess.c	process_specs_s.c
 
 OBJ = $(SRC:.c=.o)
 OS = $(shell uname -s)

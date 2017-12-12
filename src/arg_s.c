@@ -5,7 +5,7 @@ int arg_s_hh(va_list arg, t_spec specs, int fd)
 	char *str;
 
 	str = ft_strdup(va_arg(arg, char *));
-	process_specs(&str, specs);
+	process_specs_s(&str, specs);
 	ft_putstr_fd(str, fd);
 	ft_strdel(&str);
 	return(ft_strlen(str));

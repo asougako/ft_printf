@@ -19,13 +19,7 @@
 
 #include "ft_printf.h"
 
-#define REMOVE_FLAG(F) ((*specs).flags &= ~F)
-void	pre_process_x(t_spec *specs)
-{
-	REMOVE_FLAG(FLAG_PLUS);
-}
-
-static	t_spec	pre_process(t_spec specs)
+static	t_spec	preprocess(t_spec specs)
 {
 
 	if (specs.width < 0)
@@ -150,7 +144,7 @@ void	process_specs(char **arg, t_spec specs)
 //	printf("\n~~~%s\n", *arg);
 
 //	printf("f=%x\tw=%d\tp=%d\tl=%d\tc=%c\n", specs.flags, specs.width, specs.prec, specs.lenght, specs.conv);
-	specs = pre_process(specs);
+	specs = preprocess(specs);
 //	printf("f=%x\tw=%d\tp=%d\tl=%d\tc=%c\n", specs.flags, specs.width, specs.prec, specs.lenght, specs.conv);
 
 	process_prec(arg, specs);

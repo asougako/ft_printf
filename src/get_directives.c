@@ -89,6 +89,7 @@ static void	get_lenght(t_spec *specs, char *start)
 		if (ft_strstr(start, *(a_len + index)))
 		{
 			(*specs).lenght = size_tab[index];
+			return;
 		}
 		index++;
 	}

@@ -8,6 +8,7 @@ int arg_xupp_hh(va_list arg, t_spec specs, int fd)
 
 	i = (unsigned char)va_arg(arg, unsigned int);
 	print = ft_itoabase(i, "0123456789ABCDEF");
+	preprocess_x(&specs);
 	process_specs(&print, specs);
 	ft_putstr_fd(print, fd);
 	size = ft_strlen(print);
@@ -23,6 +24,7 @@ int arg_xupp_h(va_list arg, t_spec specs, int fd)
 
 	i = (short)va_arg(arg, unsigned int);
 	print = ft_itoabase(i, "0123456789ABCDEF");
+	preprocess_x(&specs);
 	process_specs(&print, specs);
 	ft_putstr_fd(print, fd);
 	size = ft_strlen(print);
@@ -38,6 +40,7 @@ int arg_xupp_i(va_list arg, t_spec specs, int fd)
 
 	i = (unsigned int)va_arg(arg, unsigned int);
 	print = ft_itoabase(i, "0123456789ABCDEF");
+	preprocess_x(&specs);
 	process_specs(&print, specs);
 	ft_putstr_fd(print, fd);
 	size = ft_strlen(print);
@@ -53,6 +56,7 @@ int arg_xupp_l(va_list arg, t_spec specs, int fd)
 
 	i = (unsigned long)va_arg(arg, unsigned long);
 	print = ft_itoabase(i, "0123456789ABCDEF");
+	preprocess_x(&specs);
 	process_specs(&print, specs);
 	ft_putstr_fd(print, fd);
 	size = ft_strlen(print);
@@ -68,6 +72,7 @@ int arg_xupp_ll(va_list arg, t_spec specs, int fd)
 
 	i = (unsigned long long)va_arg(arg, unsigned long long);
 	print = ft_itoabase(i, "0123456789ABCDEF");
+	preprocess_x(&specs);
 	process_specs(&print, specs);
 	ft_putstr_fd(print, fd);
 	size = ft_strlen(print);

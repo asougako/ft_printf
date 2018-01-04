@@ -32,17 +32,30 @@
 #define FLAG_SPACE  (0x01 << 3)
 #define FLAG_PLUS   (0x01 << 4)
 
-#define LENG_I  0
-#define LENG_HH 1
-#define LENG_H  2
-#define LENG_LL 3
-#define LENG_L  4
+typedef enum s_lenght
+{
+	LENG_I,
+	LENG_HH,
+	LENG_H,
+	LENG_LL,
+	LENG_L,
+	LENG_Z,
+	LENG_J
+}				t_lenght;
+
+//	#define LENG_I  0
+//	#define LENG_HH 1
+//	#define LENG_H  2
+//	#define LENG_LL 3
+//	#define LENG_L  4
+//	#define LENG_L  5
+//	#define LENG_L  6
 
 #define ALLOWED_FLAGS "#0- +"
 #define ALLOWED_SPECS "sSpdDioOuUxXcC%"
 
 #define INDEX_TAB_LEN 96
-#define DIRECTIVE_TAB_LEN 33
+#define DIRECTIVE_TAB_LEN 43
 
 #define FLAG_OFFSET 0040
 #define CONV_OFFSET 0040
@@ -107,25 +120,35 @@ int		arg_d_h(va_list arg, t_spec specs, int fd);
 int		arg_d_i(va_list arg, t_spec specs, int fd);
 int		arg_d_l(va_list arg, t_spec specs, int fd);
 int		arg_d_ll(va_list arg, t_spec specs, int fd);
+int		arg_d_z(va_list arg, t_spec specs, int fd);
+int		arg_d_j(va_list arg, t_spec specs, int fd);
 int		arg_u_hh(va_list arg, t_spec specs, int fd);
 int		arg_u_h(va_list arg, t_spec specs, int fd);
 int		arg_u_i(va_list arg, t_spec specs, int fd);
 int		arg_u_l(va_list arg, t_spec specs, int fd);
 int		arg_u_ll(va_list arg, t_spec specs, int fd);
+int		arg_u_z(va_list arg, t_spec specs, int fd);
+int		arg_u_j(va_list arg, t_spec specs, int fd);
 int		arg_o_hh(va_list arg, t_spec specs, int fd);
 int		arg_o_h(va_list arg, t_spec specs, int fd);
 int		arg_o_i(va_list arg, t_spec specs, int fd);
 int		arg_o_l(va_list arg, t_spec specs, int fd);
 int		arg_o_ll(va_list arg, t_spec specs, int fd);
+int		arg_o_z(va_list arg, t_spec specs, int fd);
+int		arg_o_j(va_list arg, t_spec specs, int fd);
 int		arg_x_hh(va_list arg, t_spec specs, int fd);
 int		arg_x_h(va_list arg, t_spec specs, int fd);
 int		arg_x_i(va_list arg, t_spec specs, int fd);
 int		arg_x_l(va_list arg, t_spec specs, int fd);
 int		arg_x_ll(va_list arg, t_spec specs, int fd);
+int		arg_x_z(va_list arg, t_spec specs, int fd);
+int		arg_x_j(va_list arg, t_spec specs, int fd);
 int		arg_xupp_hh(va_list arg, t_spec specs, int fd);
 int		arg_xupp_h(va_list arg, t_spec specs, int fd);
 int		arg_xupp_i(va_list arg, t_spec specs, int fd);
 int		arg_xupp_l(va_list arg, t_spec specs, int fd);
 int		arg_xupp_ll(va_list arg, t_spec specs, int fd);
+int		arg_xupp_z(va_list arg, t_spec specs, int fd);
+int		arg_xupp_j(va_list arg, t_spec specs, int fd);
 int		arg_p(va_list arg, t_spec specs, int fd);
 #endif

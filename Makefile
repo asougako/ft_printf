@@ -67,6 +67,10 @@ SRC_FTPRINTF =\
 	process_specs_mod.c		process_specs_s.c\
 	process_specs_d.c	process_specs_u.c	arg_err.c	arg_mod.c
 
+@RET = $(shell mkdir objs/)
+@RET = $(shell mkdir objs/ft_getopt)
+@RET = $(shell mkdir objs/ft_printf)
+
 SRCS = $(SRC_LIBFT)\
 	   $(addprefix ft_getopt/, $(SRC_GETOPT))\
 	   $(addprefix ft_printf/, $(SRC_FTPRINTF))

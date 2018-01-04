@@ -9,5 +9,6 @@ int arg_mod(va_list arg, t_spec specs, int fd)
 	str = ft_strdup("%");
 	process_specs_mod(&str, specs);
     ft_putstr_fd(str, fd);
+	ft_strdel(&str);
     return(ft_strlen(str));
 }

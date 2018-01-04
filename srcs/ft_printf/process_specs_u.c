@@ -5,13 +5,11 @@ static void	preprocess(t_spec *specs, char *arg)
 {
 	(void)arg;
 	REMOVE_FLAG(FLAG_PLUS);
-
-//	if (specs.width < 0)
-//	{
-//		specs.flags &= FLAG_MINUS;
-//		specs.width = twos_complement(specs.width);
-//	}
-
+	if ((*specs).width < 0)
+	{
+		(*specs).flags &= FLAG_MINUS;
+		(*specs).width = twos_complement((*specs).width);
+	}
 	//  Flag'#' has no effect with conv c, d, i, n, p, s, and u
 	if (!(ft_strchr("oxX", (*specs).conv)))
 		REMOVE_FLAG(FLAG_HASH);
@@ -33,31 +31,18 @@ static void	process_flag(char **arg, t_spec specs)
 {
 	char *buff;
 
-	//HASH
 	if ((specs.flags & FLAG_HASH) && (specs.conv == 'o') && **arg != '0')
-	{
 		buff = ft_strjoin("0", *arg);
-	}
 	else if (specs.flags & FLAG_HASH && specs.conv == 'x')
-	{
 		buff = ft_strjoin("0x", *arg);
-	}
 	else if (specs.flags & FLAG_HASH &&  specs.conv == 'X')
-	{
 		buff = ft_strjoin("0X", *arg);
-	}
 	else if (specs.flags & FLAG_SPACE && **arg != '-')
-	{
 		buff = ft_strjoin(" ", *arg);
-	}
 	else if (specs.flags & FLAG_PLUS && **arg != '-')
-	{
 		buff = ft_strjoin("+", *arg);
-	}
 	else
-	{
 		return;
-	}
 	ft_strdel(arg);
 	*arg = buff;
 }
@@ -70,18 +55,10 @@ static void	process_prec(char **arg, t_spec specs)
 
 	if (specs.has_prec == false)
 		return;
-	if (ft_strchr("sS", specs.conv))
-	{
-		filler = ' ';
+	filler = '0';
+	size = ft_strlen(*arg);
+	if (size < specs.prec)
 		size = specs.prec;
-	}
-	else
-	{
-		filler = '0';
-		size = ft_strlen(*arg);
-		if (size < specs.prec)
-			size = specs.prec;
-	}
 	buff = ft_strnew(size);
 	ft_memset(buff, filler, size);
 	if (size > (int)ft_strlen(*arg))

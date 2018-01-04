@@ -75,3 +75,33 @@ int arg_o_ll(va_list arg, t_spec specs, int fd)
 	return(size);
 }
 
+int arg_o_z(va_list arg, t_spec specs, int fd)
+{
+	int size;
+	size_t i;
+	char *print;
+
+	i = (size_t)va_arg(arg, size_t);
+	print = ft_itoabase(i, "01234567");
+	process_specs_u(&print, specs);
+	ft_putstr_fd(print, fd);
+	size = ft_strlen(print);
+	ft_strdel(&print);
+	return(size);
+}
+
+int arg_o_j(va_list arg, t_spec specs, int fd)
+{
+	int size;
+	uintmax_t i;
+	char *print;
+
+	i = (uintmax_t)va_arg(arg, uintmax_t);
+	print = ft_itoabase(i, "01234567");
+	process_specs_u(&print, specs);
+	ft_putstr_fd(print, fd);
+	size = ft_strlen(print);
+	ft_strdel(&print);
+	return(size);
+}
+

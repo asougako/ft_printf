@@ -78,8 +78,8 @@ static void	get_prec(t_spec *specs, char *start, char *conv)
 
 static void	get_lenght(t_spec *specs, char *start)
 {
-	char    *a_len[5] = {"hh", "h", "ll", "l", NULL};
-	int     size_tab[4] = {LENG_HH, LENG_H, LENG_LL, LENG_L};
+	char    *a_len[7] = {"hh", "h", "ll", "l", "z", "j", NULL};
+	t_lenght len_tab[6] = {LENG_HH, LENG_H, LENG_LL, LENG_L, LENG_Z, LENG_J};
 	int     index;
 
 	index = 0;
@@ -88,7 +88,7 @@ static void	get_lenght(t_spec *specs, char *start)
 	{
 		if (ft_strstr(start, *(a_len + index)))
 		{
-			(*specs).lenght = size_tab[index];
+			(*specs).lenght = len_tab[index];
 			return;
 		}
 		index++;
@@ -103,7 +103,6 @@ t_spec get_directives(char *start, char *conv, va_list arg)
 
 	directives = ft_strndup(start, conv - start + 1);
 	dir_len = ft_strlen(directives);
-
 
 	//	printf("\n\tSTART: %s\n", directives);
 	get_flags(&specs, directives, directives + dir_len);

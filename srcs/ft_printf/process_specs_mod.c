@@ -5,6 +5,8 @@ static void	preprocess(t_spec *specs, char *arg)
 {
 	REMOVE_FLAG(FLAG_PLUS);
 	REMOVE_FLAG(FLAG_HASH);
+	REMOVE_FLAG(FLAG_SPACE);
+
 
 	(void)arg;
 

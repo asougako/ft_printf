@@ -6,7 +6,7 @@
 #    By: asougako <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 14:26:49 by asougako          #+#    #+#              #
-#    Updated: 2017/12/12 21:17:39 by asougako         ###   ########.fr        #
+#    Updated: 2018/01/05 12:14:07 by asougako         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@
 
 NAME = libftprintf.a
 CC = gcc
-CF = -Wall -Wextra -Werror
+#CF = -Wall -Wextra -Werror
+CF = 
 AR = ar rcs
 DEBUG = 0
 

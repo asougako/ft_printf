@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   process_specs_s.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asougako <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/05 12:06:33 by asougako          #+#    #+#             */
+/*   Updated: 2018/01/05 12:12:49 by asougako         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 #define REMOVE_FLAG(F) ((*specs).flags &= ~F)
@@ -79,12 +91,20 @@ static void	process_width(char **arg, t_spec specs)
 		ft_strncpy(buff + (size - ft_strlen(*arg)), *arg, ft_strlen(*arg));
 	ft_strdel(arg);
 	*arg = buff;
+
+	printf("HAS WIDTH\n");
+	printf("HAS WIDTH\n");
+	printf("FILLER = %c\n", filler);
 }
 
 
 
 void		process_specs_s(char **arg, t_spec specs)
 {
+	(void)arg;
+	(void)specs;
+
+
 	//  printf("f=%x\tw=%d\tp=%d\tl=%d\tc=%c\n", specs.flags, specs.width, specs.pr    ec, specs.lenght, specs.conv);
 
 	preprocess(&specs, *arg);
@@ -93,5 +113,5 @@ void		process_specs_s(char **arg, t_spec specs)
 
 	process_prec(arg, specs);
 	process_flag(arg, specs);
-	process_width(arg, specs);
+//	process_width(arg, specs);
 }
